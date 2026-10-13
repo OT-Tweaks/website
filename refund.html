@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Refund policy - OT Tweaks</title>
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#070a10">
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+<link rel="preload" href="/assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<script src="/config.js"></script>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="OT Tweaks home"><img src="/assets/img/logo.webp" alt="" width="38" height="38">OT <b>TWEAKS</b></a>
+    <nav class="nav" id="nav" aria-label="Main"><a href="/#features">Features</a><a href="/#faq">FAQ</a><a data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Discord</a></nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main class="page"><div class="wrap">
+
+<h1 class="display">Refund policy</h1><p class="updated">Last updated: October 11, 2026</p>
+<p style="margin-top:28px">We want you to be happy with OT Tweaks. Because it's a digital product, refunds work like this:</p>
+<h2>You can get a full refund if</h2>
+<ul>
+  <li>you ask within 14 days of purchase and haven't signed in to OT Tweaks yet, or</li>
+  <li>OT Tweaks doesn't run on your PC and our support team can't fix it within a reasonable time.</li>
+</ul>
+<h2>We can't refund</h2>
+<ul>
+  <li>purchases older than 14 days,</li>
+  <li>licenses that have been activated and work as described, or</li>
+  <li>licenses removed for breaking our <a href="/terms.html">terms</a>, such as sharing an account.</li>
+</ul>
+<h2>How to ask for a refund</h2>
+<p>To request a refund, <span data-contact></span> with the email you used at checkout. Approved refunds go back to your original payment method through Stripe and usually arrive within 5 to 10 business days. When a refund is issued, the license is deactivated.</p>
+<h2>Chargebacks</h2>
+<p>Please contact us before opening a dispute with your bank. We can usually sort things out faster.</p>
+</div></main>
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/img/logo.webp" alt="" width="30" height="30" style="width:30px;height:30px">OT <b>TWEAKS</b></a>
+    <span>&copy; <span id="year">2026</span> OT Tweaks</span>
+    <nav aria-label="Footer"><a data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Discord</a><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refunds</a></nav>
+  </div>
+</footer>
+<script src="/main.js"></script>
+<script>
+(function(){ // contact line: email if configured, otherwise Discord
+  var C=window.OT_CONFIG||{}; document.querySelectorAll('[data-contact]').forEach(function(el){
+    el.innerHTML = C.supportEmail ? 'email <a href="mailto:'+C.supportEmail+'">'+C.supportEmail+'</a> or message us in <a href="'+C.discordUrl+'" target="_blank" rel="noopener">our Discord</a>'
+                                  : 'message us in <a href="'+C.discordUrl+'" target="_blank" rel="noopener">our Discord</a>'; });
+})();
+</script>
+</body>
+</html>

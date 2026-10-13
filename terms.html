@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terms of service - OT Tweaks</title>
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#070a10">
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+<link rel="preload" href="/assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<script src="/config.js"></script>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="OT Tweaks home"><img src="/assets/img/logo.webp" alt="" width="38" height="38">OT <b>TWEAKS</b></a>
+    <nav class="nav" id="nav" aria-label="Main"><a href="/#features">Features</a><a href="/#faq">FAQ</a><a data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Discord</a></nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main class="page"><div class="wrap">
+
+<h1 class="display">Terms of service</h1><p class="updated">Last updated: October 11, 2026</p>
+<p style="margin-top:28px">These terms apply when you buy or use OT Tweaks ("the software"). By buying or using it, you agree to them.</p>
+<h2>Your license</h2>
+<p>When you buy OT Tweaks you get a personal, non-transferable license to use the software on one PC. Your license is linked to the first PC you sign in on. If you replace your PC, contact support and we'll move your license.</p>
+<h2>What you can't do</h2>
+<ul>
+  <li>Share your account or login, or let other people use your license.</li>
+  <li>Resell, redistribute, copy or publish the software.</li>
+  <li>Reverse engineer, modify or bypass the license check.</li>
+</ul>
+<p>We may suspend licenses that break these rules, without a refund.</p>
+<h2>What the software does</h2>
+<p>OT Tweaks changes Windows settings to improve gaming performance. It makes a restore point before Full Optimize and includes a rollback option. Results depend on your hardware and software, and we don't guarantee any specific improvement in FPS, latency or ping.</p>
+<h2>Your responsibility</h2>
+<p>You use the software at your own risk. Keep backups of important files. We aren't responsible for data loss, system problems, or account actions taken by third-party games or services. OT Tweaks is not affiliated with Microsoft, NVIDIA, AMD, Intel or any game publisher.</p>
+<h2>Updates and availability</h2>
+<p>We may update, change or discontinue features. Updates to OT Tweaks 2 are included with your purchase.</p>
+<h2>Limitation of liability</h2>
+<p>To the extent the law allows, the software is provided "as is", and our total liability is limited to the amount you paid for it.</p>
+<h2>Refunds</h2>
+<p>See our <a href="/refund.html">refund policy</a>.</p>
+<h2>Changes and contact</h2>
+<p>We may update these terms, and the date at the top shows the latest version. Questions? <span data-contact></span>.</p>
+</div></main>
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/img/logo.webp" alt="" width="30" height="30" style="width:30px;height:30px">OT <b>TWEAKS</b></a>
+    <span>&copy; <span id="year">2026</span> OT Tweaks</span>
+    <nav aria-label="Footer"><a data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Discord</a><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refunds</a></nav>
+  </div>
+</footer>
+<script src="/main.js"></script>
+<script>
+(function(){ // contact line: email if configured, otherwise Discord
+  var C=window.OT_CONFIG||{}; document.querySelectorAll('[data-contact]').forEach(function(el){
+    el.innerHTML = C.supportEmail ? 'email <a href="mailto:'+C.supportEmail+'">'+C.supportEmail+'</a> or message us in <a href="'+C.discordUrl+'" target="_blank" rel="noopener">our Discord</a>'
+                                  : 'message us in <a href="'+C.discordUrl+'" target="_blank" rel="noopener">our Discord</a>'; });
+})();
+</script>
+</body>
+</html>
