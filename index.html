@@ -3,199 +3,272 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OT Tweaks - Windows optimizer for smoother gaming</title>
-<meta name="description" content="OT Tweaks is a one-click Windows optimizer for gamers. Higher FPS, lower input delay and lower ping, with tweaks that stay applied permanently. NVIDIA, AMD and Intel. $50 one-time.">
+<title>OT Tweaks — Windows optimizer for smoother gaming</title>
+<meta name="description" content="OT Tweaks is a one-click Windows optimizer for gamers. Steadier frame times, lower input delay and lower ping, with tweaks that stay applied after every reboot. NVIDIA, AMD and Intel. $50 one-time.">
 <link rel="canonical" href="https://ottweaks.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="OT Tweaks - smoother gaming on Windows">
+<meta property="og:title" content="OT Tweaks — smoother gaming on Windows">
 <meta property="og:description" content="One click applies the Windows tweaks that matter for gaming, and keeps them applied after every reboot.">
 <meta property="og:image" content="https://ottweaks.com/assets/img/trailer-poster.jpg">
 <meta property="og:url" content="https://ottweaks.com/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#070a10">
+<meta name="theme-color" content="#06090f">
 <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <script src="/config.js"></script>
 </head>
-<body>
+<body class="home">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="top" id="top">
+  <div class="progress" id="progress" aria-hidden="true"></div>
   <div class="wrap">
     <a class="brand" href="/" aria-label="OT Tweaks home"><img src="/assets/img/logo.webp" alt="" width="38" height="38">OT <b>TWEAKS</b></a>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#trailer">Trailer</a>
+      <a href="#demo">Demo</a>
       <a href="#features">Features</a>
-      <a href="#how">How it works</a>
+      <a href="#stutter">Why it matters</a>
+      <a href="#support">Support</a>
+      <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a class="btn btn-buy" data-buy href="#pricing">Buy for $50</a>
     </nav>
-    <a class="btn btn-buy" data-buy href="#pricing">Buy for $50</a>
+    <a class="btn btn-buy btn-sm" data-buy href="#pricing">Buy for $50</a>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
 
 <main id="main">
   <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" id="demo" aria-labelledby="hero-title">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <a class="pill" href="#support"><span class="pill-dot"></span>New in 2.2: request PC changes right from the app</a>
+        <h1 id="hero-title" class="display">Stop the <span class="strike">stutter</span>.<br>Keep the frames.</h1>
+        <p class="lead">OT Tweaks applies the Windows settings that actually matter for gaming — power, input, network and graphics — in one click. Then it keeps them applied after every reboot and Windows update.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-buy btn-lg" data-buy href="#pricing">Buy for $50 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost btn-lg" href="#trailer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>Watch trailer</a>
+        </div>
+        <ul class="hero-facts">
+          <li><b>One-time</b> payment</li>
+          <li><b>Windows 10 &amp; 11</b></li>
+          <li><b>NVIDIA · AMD · Intel</b></li>
+        </ul>
+      </div>
+
+      <!-- Live demo window -->
+      <div class="demo" id="demoWin" aria-label="Interactive demo of Full Optimize">
+        <div class="demo-bar">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span class="demo-title"><img src="/assets/img/logo.webp" alt="" width="16" height="16">OT Tweaks — Full Optimize</span>
+          <span class="demo-tag">Live demo</span>
+        </div>
+        <div class="demo-body">
+          <div class="demo-state" aria-live="polite">
+            <div class="ds"><span>Timer resolution</span><b data-from="15.6 ms" data-to="0.5 ms">15.6 ms</b></div>
+            <div class="ds"><span>Power plan</span><b data-from="Balanced" data-to="OT Ultimate">Balanced</b></div>
+            <div class="ds"><span>Mouse acceleration</span><b data-from="On" data-to="Off">On</b></div>
+            <div class="ds"><span>Game DVR</span><b data-from="Recording" data-to="Off">Recording</b></div>
+          </div>
+          <div class="demo-graph">
+            <div class="dg-head"><span>Frame time</span><b id="dgVal">—</b></div>
+            <canvas id="dgCanvas" aria-hidden="true"></canvas>
+          </div>
+          <ol class="demo-steps" id="demoSteps">
+            <li>Create restore point</li>
+            <li>Ultimate power plan &amp; no throttling</li>
+            <li>Hardware GPU scheduling &amp; MPO fix</li>
+            <li>0.5 ms timer &amp; game priority</li>
+            <li>Raw mouse input &amp; instant keyboard</li>
+            <li>Nagle off &amp; network latency</li>
+            <li>Game DVR &amp; background apps off</li>
+            <li>Always-On protection enabled</li>
+          </ol>
+          <div class="demo-foot">
+            <div class="demo-meter"><i id="demoBar"></i></div>
+            <button class="btn btn-buy btn-sm" id="demoRun" type="button"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg><span>Run Full Optimize</span></button>
+          </div>
+        </div>
+        <p class="demo-note">Illustration of the app. Real changes depend on your PC.</p>
+      </div>
+    </div>
+
     <div class="wrap">
-      <h1 id="hero-title" class="display">Stop the stutter.</h1>
-      <p class="lead">OT Tweaks applies the Windows settings that actually matter for gaming, across power, input, network and graphics, in one click. Then it keeps them applied after every reboot and Windows update.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-buy" data-buy href="#pricing">Buy for $50</a>
-        <a class="btn btn-ghost" href="#trailer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>Watch the trailer</a>
+      <div class="compat" aria-label="Works with">
+        <span>Works with</span>
+        <b>NVIDIA GeForce</b><b>AMD Radeon</b><b>Intel Arc &amp; UHD</b><b>Intel Core</b><b>AMD Ryzen &amp; X3D</b><b>Windows 10 / 11</b>
       </div>
-      <p class="hero-note">One-time payment. Windows 10 and 11, with NVIDIA, AMD or Intel graphics.</p>
+    </div>
+  </section>
 
-      <div class="ft" aria-hidden="true">
-        <div class="ft-readout">Frame time<b id="ftValue">34.8 ms</b></div>
-        <div class="ft-legend"><span><i style="background:var(--red)"></i>Stock Windows</span><span><i style="background:var(--green)"></i>With OT Tweaks</span></div>
-        <canvas id="ftCanvas"></canvas>
-      </div>
-
-      <div class="hero-shot">
-        <img src="/assets/img/dashboard.webp" width="1600" height="900" alt="The OT Tweaks dashboard showing a setup checklist, Always-On status and hardware overview">
-      </div>
+  <!-- STATS -->
+  <section class="stats" aria-label="OT Tweaks in numbers">
+    <div class="wrap stats-grid">
+      <div class="stat"><b data-count="50" data-suffix="+">0</b><span>Windows tweaks, each one explained</span></div>
+      <div class="stat"><b data-count="60" data-suffix="+">0</b><span>game profiles matched to their anti-cheat</span></div>
+      <div class="stat"><b data-count="0.5" data-decimals="1" data-suffix=" ms">0</b><span>system timer, held by Always-On</span></div>
+      <div class="stat"><b data-count="1" data-suffix=" click">0</b><span>to optimize — and never re-run</span></div>
     </div>
   </section>
 
   <!-- TRAILER -->
-  <section id="trailer" class="band" aria-labelledby="trailer-title">
+  <section id="trailer" class="sec" aria-labelledby="trailer-title">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head center">
         <h2 id="trailer-title" class="display">See it in 37 seconds.</h2>
+        <p class="lead">From install to a fully tuned PC — Full Optimize, the scanner, Always-On and the tools around them.</p>
       </div>
-      <div class="trailer-frame">
+      <div class="trailer-frame" id="trailerFrame">
         <video id="trailerVideo" preload="none" playsinline poster="/assets/img/trailer-poster.jpg" width="1280" height="720">
           <source src="/assets/video/ot-tweaks-trailer.mp4" type="video/mp4">
           <source src="/assets/video/ot-tweaks-trailer.webm" type="video/webm">
         </video>
-        <button class="play" id="playBtn" aria-label="Play the OT Tweaks trailer"><span><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="2"/><path d="M19 15.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 19 15.5Z" fill="currentColor"/></svg>Play trailer</span></button>
+        <button class="play" id="playBtn" aria-label="Play the OT Tweaks trailer"><span class="play-ring"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span><span class="play-txt">Play trailer · 0:37</span></button>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section id="features" aria-labelledby="features-title">
+  <!-- FEATURE EXPLORER -->
+  <section id="features" class="sec band" aria-labelledby="features-title">
     <div class="wrap">
       <div class="sec-head">
         <h2 id="features-title" class="display">Everything that slows a gaming PC, handled.</h2>
-        <p class="lead">Every tweak is a real Windows setting with a clear explanation. No placebo, no fake FPS counters.</p>
+        <p class="lead">Every tweak is a real Windows setting with a plain-English explanation. No placebo, no fake FPS counters. Click through the app:</p>
       </div>
-
-      <article class="feature">
-        <div class="f-text">
-          <h3>One click does it all</h3>
-          <p>Full Optimize creates a restore point, then runs every safe tweak in the right order and shows each change as it happens.</p>
-          <ul><li>Restore point made before anything changes</li><li>Live log of every setting it applies</li><li>Restart once and you're done</li></ul>
+      <div class="explorer" id="explorer">
+        <div class="ex-tabs" role="tablist" aria-label="App features">
+          <button role="tab" aria-selected="true" aria-controls="exPanel" data-i="0"><span class="ex-ico">⚡</span><span><b>Full Optimize</b><small>Every safe tweak, in order, in one click</small></span><i class="ex-prog"></i></button>
+          <button role="tab" aria-selected="false" aria-controls="exPanel" data-i="1"><span class="ex-ico">🚀</span><span><b>FPS &amp; Power</b><small>No throttling, GPU scheduling, MPO fix</small></span><i class="ex-prog"></i></button>
+          <button role="tab" aria-selected="false" aria-controls="exPanel" data-i="2"><span class="ex-ico">🖱️</span><span><b>Input &amp; Latency</b><small>Raw input, 0.5 ms timer, MSI mode</small></span><i class="ex-prog"></i></button>
+          <button role="tab" aria-selected="false" aria-controls="exPanel" data-i="3"><span class="ex-ico">📶</span><span><b>Network</b><small>Fastest DNS, Nagle off, lag-under-load test</small></span><i class="ex-prog"></i></button>
+          <button role="tab" aria-selected="false" aria-controls="exPanel" data-i="4"><span class="ex-ico">🩺</span><span><b>PC Scanner</b><small>Finds what's slowing you down, fixes it</small></span><i class="ex-prog"></i></button>
+          <button role="tab" aria-selected="false" aria-controls="exPanel" data-i="5"><span class="ex-ico">🛡️</span><span><b>Always-On &amp; Undo</b><small>Stays applied. Undo any tweak.</small></span><i class="ex-prog"></i></button>
+          <button role="tab" aria-selected="false" aria-controls="exPanel" data-i="6"><span class="ex-ico">🎮</span><span><b>Game Profiles</b><small>60+ games, anti-cheat aware</small></span><i class="ex-prog"></i></button>
+          <button role="tab" aria-selected="false" aria-controls="exPanel" data-i="7"><span class="ex-ico">🧹</span><span><b>Uninstaller &amp; Debloat</b><small>Apps, leftovers, bloat and telemetry</small></span><i class="ex-prog"></i></button>
         </div>
-        <img class="shot" src="/assets/img/optimize.webp" loading="lazy" width="864" height="548" alt="Full Optimize running, listing each tweak as it is applied">
-      </article>
-
-      <article class="feature flip">
-        <div class="f-text">
-          <h3>Higher, steadier FPS</h3>
-          <p>A tuned high-performance power plan, no CPU throttling, hardware GPU scheduling and windowed-game optimizations. Your CPU and GPU stop holding back.</p>
-          <ul><li>Detects Intel hybrid and AMD Ryzen CPUs, including X3D</li><li>NVIDIA, AMD and Intel GPU tuning</li><li>Game DVR and background recording off</li></ul>
+        <div class="ex-panel" id="exPanel" role="tabpanel" aria-live="polite">
+          <div class="ex-shot" id="exShot">
+            <div class="ex-chrome"><span class="dots"><i></i><i></i><i></i></span><span id="exUrl">OT Tweaks</span></div>
+            <img id="exImg" src="/assets/img/optimize.webp" width="1600" height="900" alt="">
+          </div>
+          <div class="ex-text">
+            <h3 id="exTitle">One click does it all</h3>
+            <p id="exDesc"></p>
+            <ul id="exList" class="ticks"></ul>
+          </div>
         </div>
-        <img class="shot" src="/assets/img/fps.webp" loading="lazy" width="1600" height="900" alt="FPS and Power tab with active tweaks">
-      </article>
+      </div>
+    </div>
+  </section>
 
-      <article class="feature">
-        <div class="f-text">
-          <h3>Lower input delay</h3>
-          <p>Raw mouse input, instant keyboard response and a 0.5 ms system timer, so what you do reaches the screen sooner.</p>
-          <ul><li>Mouse acceleration off</li><li>No accessibility pop-ups mid-game</li><li>High-resolution timer kept active</li></ul>
+  <!-- STUTTER VISUALIZER -->
+  <section id="stutter" class="sec" aria-labelledby="stutter-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="stutter-title" class="display">Average FPS lies. Frame pacing doesn't.</h2>
+        <p class="lead">Both lanes below run at the same average speed. One delivers frames unevenly — that's the stutter you feel. OT Tweaks targets the Windows settings behind uneven frame times.</p>
+      </div>
+      <div class="pace" id="pace">
+        <div class="lane bad">
+          <div class="lane-head"><span class="tag red">Uneven frame pacing</span><span class="lane-ms">frame time <b id="msBad">—</b></span></div>
+          <div class="track"><i class="puck" id="puckBad"></i></div>
+          <canvas class="spark" id="sparkBad" aria-hidden="true"></canvas>
         </div>
-        <img class="shot" src="/assets/img/input.webp" loading="lazy" width="1600" height="900" alt="Input and Latency tab">
-      </article>
-
-      <article class="feature flip">
-        <div class="f-text">
-          <h3>Lower, steadier ping</h3>
-          <p>OT Tweaks tests DNS servers on your own connection and switches to the fastest. It also turns off the network settings that add delay to game traffic.</p>
-          <ul><li>Nagle's algorithm and network throttling off</li><li>Network card latency settings tuned</li><li>Wi-Fi users protected automatically</li></ul>
+        <div class="lane good">
+          <div class="lane-head"><span class="tag green">Even frame pacing</span><span class="lane-ms">frame time <b id="msGood">—</b></span></div>
+          <div class="track"><i class="puck" id="puckGood"></i></div>
+          <canvas class="spark" id="sparkGood" aria-hidden="true"></canvas>
         </div>
-        <img class="shot" src="/assets/img/network.webp" loading="lazy" width="1600" height="900" alt="Network tab with a DNS benchmark">
-      </article>
-
-      <article class="feature">
-        <div class="f-text">
-          <h3>Find what's slowing you down</h3>
-          <p>The PC Scanner checks your power plan, GPU settings, network, background apps and more, then fixes each problem with one click.</p>
+        <div class="pace-ctl">
+          <label for="paceSpeed">Speed</label>
+          <input type="range" id="paceSpeed" min="0.3" max="2" step="0.1" value="1">
+          <button class="btn btn-ghost btn-sm" id="pacePause" type="button">Pause</button>
+          <span class="muted small">Simulation — same average speed, different frame timing.</span>
         </div>
-        <img class="shot" src="/assets/img/scanner.webp" loading="lazy" width="1600" height="900" alt="PC Scanner showing a health score and issues to fix">
-      </article>
-
-      <article class="feature flip">
-        <div class="f-text">
-          <h3>Set it once. It stays.</h3>
-          <p>Always-On runs quietly in the background. It keeps the high-resolution timer active and reapplies your settings if a Windows update resets them. You never have to run tweaks again.</p>
-        </div>
-        <img class="shot" src="/assets/img/always-on.webp" loading="lazy" width="1600" height="900" alt="Restore and Undo tab showing Always-On active and restore points">
-      </article>
-
-      <div class="more">
-        <div><h4>Nuclear Uninstaller</h4><p>Removes apps along with leftover files, registry keys, shortcuts and tasks.</p></div>
-        <div><h4>Debloat and privacy</h4><p>Bloatware, background services and telemetry gone. Game Pass and Xbox sign-in still work.</p></div>
-        <div><h4>60+ game profiles</h4><p>Valorant, Fortnite, Call of Duty and more, matched to each game's anti-cheat.</p></div>
-        <div><h4>GPU driver settings</h4><p>The right NVIDIA, AMD or Intel driver settings for your exact card.</p></div>
-        <div><h4>Restore and undo</h4><p>Restore points, a history of every change, and one-click rollback to Windows defaults.</p></div>
-        <div><h4>Find any tweak</h4><p>Press Ctrl+K and type what you want, like "mouse" or "ping".</p></div>
       </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
-  <section id="how" class="band" aria-labelledby="how-title">
+  <section id="how" class="sec band" aria-labelledby="how-title">
     <div class="wrap">
-      <div class="sec-head"><h2 id="how-title" class="display">Up and running in minutes.</h2></div>
+      <div class="sec-head center"><h2 id="how-title" class="display">Up and running in minutes.</h2></div>
       <ol class="steps">
-        <li><h3>Buy</h3><p>Check out securely with Stripe. Pay with a card, Apple Pay or Google Pay.</p></li>
-        <li><h3>Get your login</h3><p>Join the Discord and we'll send your OT Tweaks login and download link.</p></li>
-        <li><h3>Optimize</h3><p>Sign in, click Full Optimize, turn on Always-On, then restart your PC.</p></li>
+        <li><span class="step-n">1</span><h3>Buy</h3><p>Check out securely with Stripe — card, Apple Pay or Google Pay. You land on a page with your download.</p></li>
+        <li><span class="step-n">2</span><h3>Get your login</h3><p>Open a ticket in our Discord with your order email. We send your login, usually within a few hours.</p></li>
+        <li><span class="step-n">3</span><h3>Optimize</h3><p>Sign in, click Full Optimize, turn on Always-On and restart. That's it — it stays applied.</p></li>
       </ol>
     </div>
   </section>
 
+  <!-- SUPPORT -->
+  <section id="support" class="sec" aria-labelledby="support-title">
+    <div class="wrap support-grid">
+      <div>
+        <h2 id="support-title" class="display">Backed by real people. And an AI that answers instantly.</h2>
+        <p class="lead">Every customer gets support in our Discord. Open a ticket and our AI assistant answers right away while the team takes a look.</p>
+        <div class="cards">
+          <div class="card spot"><h4>🤖 Instant answers</h4><p>Setup, fixes and "how do I…" — answered in seconds, any time of day.</p></div>
+          <div class="card spot"><h4>🔄 Auto-updates</h4><p>New versions install themselves. You'll see what changed after every update.</p></div>
+          <div class="card spot"><h4>💻 New PC? Covered.</h4><p>Request a PC change right from the app. Once approved, it unlocks automatically.</p></div>
+          <div class="card spot"><h4>↩️ Undo anything</h4><p>Undo a single tweak, or roll everything back to Windows defaults.</p></div>
+        </div>
+      </div>
+      <div class="chat" id="chat" aria-label="Example of a support ticket">
+        <div class="chat-head"><span class="hash">#</span>support-0142-alex<span class="chat-badge">Example ticket</span></div>
+        <div class="msg"><div class="av user">A</div><div><b>alex</b><p>My monitor is 165 Hz but games feel like 60. Did I break something?</p></div></div>
+        <div class="msg ai"><div class="av bot"><img src="/assets/img/logo.webp" alt="" width="34" height="34"></div><div><b>OT Tweaks AI <span class="botflag">APP</span></b>
+          <div class="embed"><p class="typed" data-text="Nothing's broken — this is common! Windows often leaves high-refresh monitors at 60 Hz.&#10;1. Open OT Tweaks → Tools &amp; Repair → Monitor Refresh Check&#10;2. It shows your real refresh rate and how to switch to 165 Hz&#10;3. Then re-run Full Optimize and restart"></p><small>AI answer — a team member will follow up if you still need help</small></div></div></div>
+        <div class="msg late"><div class="av staff">S</div><div><b>OT Support <span class="staffflag">Staff</span></b><p>Hey Alex, I've got this ticket too — shout if anything else comes up 👋</p></div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- SAFETY -->
-  <section aria-labelledby="safe-title">
+  <section class="sec band" aria-labelledby="safe-title">
     <div class="wrap safety">
       <div>
         <h2 id="safe-title" class="display">Safe to try. Easy to undo.</h2>
-        <p class="lead" style="margin-top:20px">OT Tweaks only changes Windows settings. It never touches your game files and never disables your antivirus or firewall.</p>
+        <p class="lead">OT Tweaks only changes Windows settings. It never touches your game files and never disables your antivirus or firewall.</p>
       </div>
       <ul class="checks">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Restore point first</b><span>Full Optimize makes a Windows restore point before it changes anything.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>One-click rollback</b><span>Put every setting back to Windows defaults whenever you want.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Normal Windows keeps working</b><span>Wi-Fi, Bluetooth, audio, Windows Search, Windows Hello, Game Pass and Xbox sign-in are left alone.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><b>Anti-cheat aware</b><span>Game profiles skip tweaks that kernel anti-cheats like Vanguard are sensitive to.</span></div></li>
+        <li class="card spot"><b>Restore point first</b><span>Full Optimize makes a Windows restore point before it changes anything.</span></li>
+        <li class="card spot"><b>Undo one, or undo all</b><span>Every active tweak has an Undo button. Rollback puts everything back to Windows defaults.</span></li>
+        <li class="card spot"><b>Normal Windows keeps working</b><span>Wi-Fi, Bluetooth, audio, Search, Windows Hello, Game Pass and Xbox sign-in are left alone.</span></li>
+        <li class="card spot"><b>Anti-cheat aware</b><span>Never touches games or anti-cheat processes. Game profiles skip tweaks kernel anti-cheats are sensitive to.</span></li>
       </ul>
     </div>
   </section>
 
   <!-- PRICING -->
-  <section id="pricing" class="band" aria-labelledby="price-title">
+  <section id="pricing" class="sec" aria-labelledby="price-title">
     <div class="wrap">
-      <div class="price">
+      <div class="price spot">
         <div class="price-l">
-          <h2 id="price-title" class="display" style="font-size:clamp(30px,3.6vw,44px)">OT Tweaks</h2>
-          <div class="price-amt">$50<small>one-time</small></div>
-          <p class="muted" style="margin-top:12px">No subscription. One license for one PC.</p>
-          <a class="btn btn-buy" data-buy href="#pricing">Buy OT Tweaks</a>
-          <p class="fine">Secure checkout by Stripe. Card, Apple Pay and Google Pay.</p>
+          <span class="tag green">Lifetime license</span>
+          <h2 id="price-title" class="display">OT Tweaks</h2>
+          <div class="price-amt"><sup>$</sup>50<small>one-time</small></div>
+          <p class="muted">No subscription. One license for one PC, with free updates.</p>
+          <a class="btn btn-buy btn-lg btn-block" data-buy href="#pricing">Buy OT Tweaks <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p class="fine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Secure checkout by Stripe · Card, Apple Pay, Google Pay</p>
+          <p class="fine">Doesn't work on your PC and we can't fix it? <a href="/refund.html">Refund policy</a></p>
         </div>
         <div class="price-r">
-          <h3>What you get</h3>
-          <ul class="incl">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full Optimize and 50+ individual tweaks</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Always-On, so tweaks stay applied</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>PC Scanner, Uninstaller and Cleaner</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>60+ game profiles and GPU driver guide</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free updates to OT Tweaks 2</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Support in our Discord</li>
+          <h3>Everything included</h3>
+          <ul class="ticks">
+            <li>Full Optimize and 50+ individual tweaks</li>
+            <li>Always-On — tweaks stay applied after reboots and updates</li>
+            <li>PC Scanner, DPC latency and hardware health checks</li>
+            <li>Lag-under-load test, DNS benchmark and network tools</li>
+            <li>60+ game profiles and an NVIDIA / AMD / Intel GPU guide</li>
+            <li>Nuclear Uninstaller, Cleaner, Debloat &amp; Privacy</li>
+            <li>Undo any tweak, restore points and one-click rollback</li>
+            <li>Automatic updates, forever</li>
+            <li>Discord support with an instant AI assistant</li>
           </ul>
         </div>
       </div>
@@ -203,45 +276,48 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" aria-labelledby="faq-title">
-    <div class="wrap">
-      <div class="sec-head"><h2 id="faq-title" class="display">Questions</h2></div>
+  <section id="faq" class="sec band" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div class="sec-head"><h2 id="faq-title" class="display">Questions</h2><p class="lead">Something else? Ask in our <a data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Discord</a>.</p></div>
       <div class="faq">
-        <details><summary>How much will my FPS go up?</summary><p>It depends on your PC. The biggest gains come on PCs still running stock Windows settings, with a power-saving plan, background recording and lots of background apps. You'll usually notice steadier frame times and fewer stutters before you notice a higher average FPS. We don't promise a number, because no honest optimizer can.</p></details>
-        <details><summary>Is it safe for my PC?</summary><p>Yes. OT Tweaks only changes Windows settings, makes a restore point before Full Optimize, and has one-click rollback to Windows defaults. It never disables your antivirus, firewall or Windows security updates.</p></details>
-        <details><summary>Can I get banned in games?</summary><p>OT Tweaks changes Windows settings only. It never reads or modifies game files or game memory. Game profiles also skip tweaks that kernel-level anti-cheats are sensitive to. OT Tweaks is not affiliated with any game publisher.</p></details>
-        <details><summary>Will it work on my PC?</summary><p>OT Tweaks runs on 64-bit Windows 10 and 11, on desktops and laptops, with NVIDIA, AMD or Intel graphics. It detects your hardware and applies the right settings for it.</p></details>
-        <details><summary>How do I get the app after I pay?</summary><p>After checkout you'll see a page with your next steps. Join our Discord and we'll send your login and the download link. You sign in to OT Tweaks with that login.</p></details>
-        <details><summary>Can I use it on more than one PC?</summary><p>Each license works on one PC. It's linked to the first PC you sign in on. If you get a new PC, message support and we'll move your license.</p></details>
-        <details><summary>Do I have to run it every time I play?</summary><p>No. The tweaks are permanent, and Always-On keeps them applied after reboots and Windows updates. Game Boost is optional if you want to free extra RAM before a session.</p></details>
-        <details><summary>What's your refund policy?</summary><p>See our <a href="/refund.html">refund policy</a>. If OT Tweaks doesn't work on your PC and we can't fix it, you get your money back.</p></details>
+        <details><summary>How much will my FPS go up?</summary><div><p>It depends on your PC. The biggest gains come on PCs still running stock Windows settings — power-saving plans, background recording, lots of background apps. You'll usually notice steadier frame times and fewer stutters before a higher average FPS. We don't promise a number, because no honest optimizer can.</p></div></details>
+        <details><summary>Is it safe for my PC?</summary><div><p>Yes. OT Tweaks only changes Windows settings, makes a restore point before Full Optimize, and lets you undo any single tweak or roll everything back to Windows defaults. It never disables your antivirus, firewall or security updates.</p></div></details>
+        <details><summary>Can I get banned in games?</summary><div><p>OT Tweaks changes Windows settings only. It never reads or modifies game files or game memory, and never touches game or anti-cheat processes. Game profiles also skip tweaks that kernel-level anti-cheats are sensitive to. OT Tweaks is not affiliated with any game publisher.</p></div></details>
+        <details><summary>Will it work on my PC?</summary><div><p>OT Tweaks runs on 64-bit Windows 10 and 11, on desktops and laptops, with NVIDIA, AMD or Intel graphics. It detects your hardware and applies the right settings for it.</p></div></details>
+        <details><summary>How do I get the app after I pay?</summary><div><p>Right after checkout you'll see a page with the download. Then open a ticket in our Discord with your order email and we'll send your login, usually within a few hours.</p></div></details>
+        <details><summary>Can I use it on more than one PC?</summary><div><p>Each license works on one PC — it locks to the first PC you sign in on. Got a new PC? Click "Request a PC change" in the app; once our team approves it, the app unlocks on the new PC automatically.</p></div></details>
+        <details><summary>Do I have to run it every time I play?</summary><div><p>No. The tweaks are permanent, and Always-On keeps them applied after reboots and Windows updates. Game Boost is optional if you want to free extra RAM before a session.</p></div></details>
+        <details><summary>How do updates work?</summary><div><p>Automatically. The app downloads new versions in the background and shows a "Restart to update" button. Updates are free for the life of your license.</p></div></details>
+        <details><summary>What's your refund policy?</summary><div><p>See our <a href="/refund.html">refund policy</a>. If OT Tweaks doesn't work on your PC and we can't fix it, you get your money back.</p></div></details>
       </div>
     </div>
   </section>
 
   <!-- FINAL CTA -->
-  <section class="band final" aria-labelledby="final-title">
+  <section class="final" aria-labelledby="final-title">
+    <div class="final-glow" aria-hidden="true"></div>
     <div class="wrap">
       <h2 id="final-title" class="display">Your PC is faster than it feels.</h2>
-      <div class="hero-ctas">
-        <a class="btn btn-buy" data-buy href="#pricing">Buy for $50</a>
-        <a class="btn btn-ghost" data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Join the Discord</a>
+      <p class="lead">One click, one restart, and it stays that way.</p>
+      <div class="hero-ctas center">
+        <a class="btn btn-buy btn-lg" data-buy href="#pricing">Buy for $50</a>
+        <a class="btn btn-ghost btn-lg" data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Join the Discord</a>
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <a class="brand" href="/"><img src="/assets/img/logo.webp" alt="" width="30" height="30" style="width:30px;height:30px">OT <b>TWEAKS</b></a>
-    <span>&copy; <span id="year">2026</span> OT Tweaks</span>
-    <nav aria-label="Footer">
-      <a data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Discord</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/refund.html">Refunds</a>
-    </nav>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="/"><img src="/assets/img/logo.webp" alt="" width="30" height="30" style="width:30px;height:30px">OT <b>TWEAKS</b></a>
+      <p class="muted">The Windows optimizer for smoother, steadier gaming.</p>
+    </div>
+    <nav aria-label="Product"><h5>Product</h5><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="/download">Download</a><a href="#faq">FAQ</a></nav>
+    <nav aria-label="Support"><h5>Support</h5><a data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Discord</a><a href="/thanks">Getting started</a></nav>
+    <nav aria-label="Legal"><h5>Legal</h5><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refunds</a></nav>
   </div>
+  <div class="wrap foot-base"><span>&copy; <span id="year">2026</span> OT Tweaks. Not affiliated with Microsoft, NVIDIA, AMD, Intel or any game publisher.</span></div>
 </footer>
 
 <script src="/main.js"></script>
