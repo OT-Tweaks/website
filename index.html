@@ -263,6 +263,20 @@
     </div>
   </section>
 
+  <!-- REVIEWS: real vouches from the Discord (/vouch); stays hidden until there are some -->
+  <section id="reviews" class="sec" aria-labelledby="reviews-title" hidden>
+    <div class="wrap">
+      <div class="reviews-head">
+        <div>
+          <h2 id="reviews-title" class="display">What customers say</h2>
+          <p class="lead">Straight from our Discord. Every review is from a verified customer.</p>
+        </div>
+        <div class="score"><b id="revAvg">5.0</b><div><div class="stars" id="revStars" aria-hidden="true">★★★★★</div><div class="muted" id="revCount"></div></div></div>
+      </div>
+      <div class="review-grid" id="revGrid"></div>
+    </div>
+  </section>
+
   <!-- SAFETY -->
   <section class="sec" aria-labelledby="safe-title">
     <div class="wrap safety">
@@ -356,12 +370,14 @@
       <p class="muted">The Windows optimizer for smoother, steadier gaming.</p>
     </div>
     <nav aria-label="Product"><h5>Product</h5><a href="#tour">Tour the app</a><a href="#pricing">Pricing</a><a href="/download">Download</a><a href="#faq">FAQ</a></nav>
-    <nav aria-label="Support"><h5>Support</h5><a data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Discord</a><a href="/thanks">Getting started</a></nav>
+    <nav aria-label="Support"><h5>Support</h5><a href="/help">Help centre</a><a data-discord href="https://discord.gg/aAbXUvwhPy" target="_blank" rel="noopener">Discord</a><a href="/thanks">Getting started</a></nav>
+    <nav aria-label="Games"><h5>Games</h5><a href="/games/valorant">Valorant</a><a href="/games/fortnite">Fortnite</a><a href="/games/cs2">CS2</a><a href="/games/apex-legends">Apex Legends</a><a href="/games/warzone">Warzone</a></nav>
     <nav aria-label="Legal"><h5>Legal</h5><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refunds</a></nav>
   </div>
   <div class="wrap foot-base"><span>&copy; <span id="year">2026</span> OT Tweaks. Not affiliated with Microsoft, NVIDIA, AMD, Intel or any game publisher.</span></div>
 </footer>
 
 <script src="/main.js"></script>
+<script src="/reviews.js" defer></script>
 </body>
 </html>

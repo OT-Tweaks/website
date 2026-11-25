@@ -250,7 +250,7 @@ h4{font-family:var(--display);font-variation-settings:'wdth' 108;font-weight:750
 
 /* footer */
 footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);font-size:15px;background:var(--panel)}
-.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px}
+.foot-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:32px}
 .foot-brand p{margin-top:14px;max-width:32ch}
 footer nav{display:flex;flex-direction:column;gap:10px}
 footer h5{font-size:13px;letter-spacing:.06em;color:var(--soft);font-weight:700;margin-bottom:4px}
@@ -326,3 +326,65 @@ body:not(.home) footer nav{flex-direction:row;flex-wrap:wrap;gap:22px;margin-lef
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}
 }
+
+/* ───────── Reviews (from /vouch in Discord) ───────── */
+.reviews-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.score{display:flex;align-items:center;gap:16px}
+.score b{font-family:var(--display);font-variation-settings:'wdth' 125;font-weight:850;font-size:56px;line-height:1}
+.stars{color:#f5c451;letter-spacing:2px;font-size:20px}
+.score .muted{font-size:15px}
+.review-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.review{display:flex;flex-direction:column;gap:12px}
+.review p{color:var(--soft);font-size:16.5px;line-height:1.55}
+.review .who{display:flex;align-items:center;gap:10px;margin-top:auto;font-size:15px}
+.review .who img{width:32px;height:32px;border-radius:50%}
+.review .who b{font-weight:700}
+.review .who span{color:var(--muted);font-size:13.5px}
+.verified{color:var(--green);font-size:13px;font-weight:700}
+@media (max-width:900px){.review-grid{grid-template-columns:1fr}}
+
+/* ───────── Help centre ───────── */
+.help-top{display:flex;flex-direction:column;gap:18px;margin-bottom:34px}
+.help-search{position:relative}
+.help-search input{width:100%;font:inherit;font-size:18px;padding:16px 18px 16px 50px;border-radius:14px;border:1px solid var(--line-2);background:var(--panel-2);color:var(--text)}
+.help-search input:focus{outline:none;border-color:var(--green)}
+.help-search svg{position:absolute;left:18px;top:50%;width:20px;height:20px;transform:translateY(-50%);color:var(--muted)}
+.status{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:15px;color:var(--soft)}
+.status span{display:inline-flex;align-items:center;gap:8px}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--muted);display:inline-block}
+.status i.ok{background:var(--green);box-shadow:0 0 10px rgba(62,213,152,.7)}
+.status i.bad{background:var(--red)}
+.help-cat{margin-top:34px}
+.help-cat h2{font-size:15px!important;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 12px!important}
+.help-list details{border:1px solid var(--line);border-radius:12px;background:var(--panel-2);margin-bottom:10px}
+.help-list summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.help-list summary::-webkit-details-marker{display:none}
+.help-list summary::after{content:'+';color:var(--muted);font-weight:400;font-size:22px;line-height:1}
+.help-list details[open] summary::after{content:'–'}
+.help-list .ans{padding:0 18px 18px;color:var(--soft)}
+.help-list .ans ol,.help-list .ans ul{padding-left:22px;margin:8px 0}
+.help-list .ans p+p{margin-top:10px}
+.help-empty{color:var(--muted);padding:20px 0}
+.help-cta{margin-top:44px;padding:26px;border-radius:var(--r);border:1px solid var(--line);background:var(--panel)}
+
+/* ───────── Game pages ───────── */
+.game-hero{padding:80px 0 40px}
+.game-hero .tag{margin-bottom:18px}
+.game-hero h1{font-size:clamp(40px,6vw,70px)}
+.game-hero .lead{margin-top:18px}
+.game-body{padding-bottom:90px}
+.game-body .wrap{max-width:900px}
+.game-body h2{font-family:var(--display);font-variation-settings:'wdth' 112;font-weight:750;font-size:26px;margin:44px 0 14px}
+.game-body p,.game-body li{color:var(--soft)}
+.game-body ul{padding-left:22px}
+.game-body li+li{margin-top:8px}
+.causes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.causes .card h3{font-size:18px;margin-bottom:6px}
+.causes .card p{font-size:16px}
+.ac-note{border-left:3px solid var(--green);padding:14px 18px;background:var(--panel);border-radius:0 12px 12px 0;margin-top:14px}
+.game-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.game-links a{padding:8px 14px;border:1px solid var(--line-2);border-radius:10px;text-decoration:none;font-weight:600;font-size:15px}
+.game-links a:hover{border-color:var(--green)}
+@media (max-width:760px){.causes{grid-template-columns:1fr}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.help-search input::-webkit-search-cancel-button{filter:grayscale(1) brightness(1.6);cursor:pointer}
